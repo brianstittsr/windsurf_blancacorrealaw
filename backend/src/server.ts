@@ -6,7 +6,7 @@ import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 
-import { testFirebaseConnection } from './config/firebase';
+import { testConnection, closePool } from './config/database';
 import { testEmailConnection } from './config/email';
 
 // Import routes
@@ -78,10 +78,10 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 // Start server
 const startServer = async () => {
   try {
-    // Test Firebase connection
-    const firebaseConnected = await testFirebaseConnection();
-    if (!firebaseConnected) {
-      console.error('Failed to connect to Firebase. Exiting...');
+    // Test database connection
+    const dbConnected = await testConnection();
+    if (!dbConnected) {
+      console.error('Failed to connect to database. Exiting...');
       process.exit(1);
     }
 
@@ -101,13 +101,15 @@ const startServer = async () => {
 };
 
 // Graceful shutdown
-process.on('SIGTERM', () => {
+process.on('SIGTERM', async () => {
   console.log('SIGTERM signal received: closing HTTP server');
+  await closePool();
   process.exit(0);
 });
 
-process.on('SIGINT', () => {
+process.on('SIGINT', async () => {
   console.log('SIGINT signal received: closing HTTP server');
+  await closePool();
   process.exit(0);
 });
 
