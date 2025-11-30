@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-sans text-neutral-900 antialiased;
+  }
+
+  /* Multilingual typography adjustments */
+  :lang(es) {
+    @apply tracking-tight;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-semibold;
+  }
+
+  p {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  /* Pathway motif - decorative element */
+  .pathway-line {
+    @apply relative;
+  }
+  
+  .pathway-line::before {
+    content: '';
+    @apply absolute left-0 top-1/2 w-full h-0.5 bg-gradient-to-r from-primary/20 via-secondary/40 to-accent/20;
+  }
+
+  /* Card components */
+  .card-pathway {
+    @apply bg-white rounded-pathway shadow-card border border-neutral-200 p-6 transition-all duration-300 hover:shadow-soft hover:border-primary/30;
+  }
+
+  /* Button variants */
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-primary-600 focus:ring-4 focus:ring-primary/20 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-secondary-600 focus:ring-4 focus:ring-secondary/20 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-primary hover:text-white focus:ring-4 focus:ring-primary/20 active:scale-95;
+  }
+}
+
+@layer utilities {
+  /* Responsive text utilities */
+  .text-display {
+    @apply text-display-mobile md:text-display-desktop;
+  }
+
+  .text-h1 {
+    @apply text-h1-mobile md:text-h1-desktop;
+  }
+
+  .text-h2 {
+    @apply text-h2-mobile md:text-h2-desktop;
+  }
+
+  .text-h3 {
+    @apply text-h3-mobile md:text-h3-desktop;
+  }
+
+  .text-body {
+    @apply text-body-mobile md:text-body-desktop;
+  }
+
+  /* Container utilities */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
