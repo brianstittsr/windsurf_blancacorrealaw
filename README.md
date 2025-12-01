@@ -29,48 +29,70 @@ A modern, bilingual immigration law website with interactive tools, consultation
 
 ## 🚀 Quick Start
 
-### Option 1: Docker (Recommended)
+### Prerequisites
+- Node.js 18+
+- Firebase account (free tier available)
+- Gmail account for email notifications
+
+### Step 1: Clone Repository
 
 ```bash
-# Clone repository
-git clone https://github.com/yourusername/blanca-correa-law.git
-cd blanca-correa-law
-
-# Configure environment
-cp .env.docker.example .env
-# Edit .env with your settings
-
-# Start all services
-docker-compose up -d
-
-# Access application
-# Frontend: http://localhost:3000
-# Backend: http://localhost:3001
+git clone https://github.com/brianstittsr/windsurf_blancacorrealaw.git
+cd windsurf_blancacorrealaw
 ```
 
-### Option 2: Local Development
+### Step 2: Setup Firebase (5 minutes)
 
-**Prerequisites**: Node.js 18+, PostgreSQL 14+
+Follow **FIREBASE-SETUP.md** for detailed instructions:
+
+1. Create Firebase project at https://console.firebase.google.com/
+2. Enable Firestore Database
+3. Generate service account credentials
+4. Download credentials JSON file
+
+### Step 3: Configure Backend
 
 ```bash
-# Setup database
-createdb blanca_correa_law
-cd backend
-psql -d blanca_correa_law -f migrations/001_initial_schema.sql
-
-# Backend
 cd backend
 cp .env.example .env
-# Edit .env
-npm install
-npm run dev
-
-# Frontend (new terminal)
-cd frontend
-cp .env.local.example .env.local
+# Edit .env with your Firebase credentials and email settings
 npm install
 npm run dev
 ```
+
+**Backend `.env` file:**
+```env
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-gmail-app-password
+```
+
+### Step 4: Configure Frontend
+
+```bash
+cd frontend
+cp .env.local.example .env.local
+# Edit .env.local
+npm install
+npm run dev
+```
+
+**Frontend `.env.local` file:**
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3001
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+### Step 5: Access Application
+
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:3001
+- **Health Check**: http://localhost:3001/health
 
 ---
 
@@ -87,10 +109,11 @@ BlancaCorreaLawWebApp/
 │
 ├── backend/                     # Express.js API
 │   ├── src/
-│   │   ├── config/             # Database & email
+│   │   ├── config/             # Firebase & email config
+│   │   ├── models/             # Firestore data models
 │   │   ├── routes/             # API endpoints
-│   │   └── services/           # Business logic
-│   └── migrations/             # Database schema
+│   │   └── services/           # Email service
+│   └── package.json
 │
 ├── docs/                        # Comprehensive documentation
 │   ├── brief.md                # Project requirements
@@ -101,7 +124,9 @@ BlancaCorreaLawWebApp/
 │
 ├── .github/workflows/           # CI/CD pipelines
 ├── docker-compose.yml           # Docker configuration
+├── FIREBASE-SETUP.md            # Firebase configuration guide
 ├── DEPLOYMENT-GUIDE.md          # Deployment instructions
+├── GITHUB-DEPLOYMENT.md         # GitHub deployment summary
 ├── INTEGRATION-GUIDE.md         # API integration guide
 ├── PRODUCTION-CHECKLIST.md      # Pre-launch checklist
 └── README.md                    # This file
@@ -157,11 +182,12 @@ BlancaCorreaLawWebApp/
 - `GET /health` - Health check
 
 **Features**:
-- PostgreSQL database with 4 tables
-- Email notifications (SendGrid/SMTP)
-- Input validation
-- Rate limiting
-- Security headers
+- Firebase/Firestore database (4 collections)
+- Email notifications via Nodemailer/Gmail
+- Input validation with express-validator
+- Rate limiting (100 req/15min)
+- Security headers with Helmet
+- CORS protection
 
 ---
 
@@ -177,14 +203,16 @@ BlancaCorreaLawWebApp/
 ### Backend
 - **Framework**: Express.js
 - **Language**: TypeScript
-- **Database**: PostgreSQL 14
-- **Email**: Nodemailer
+- **Database**: Firebase/Firestore (NoSQL)
+- **Email**: Nodemailer with Gmail
 - **Validation**: express-validator
+- **Security**: Helmet, CORS, rate limiting
 
 ### DevOps
-- **Containerization**: Docker & Docker Compose
-- **CI/CD**: GitHub Actions
-- **Hosting**: Vercel (frontend) + Heroku (backend)
+- **Version Control**: Git + GitHub
+- **Repository**: https://github.com/brianstittsr/windsurf_blancacorrealaw
+- **CI/CD**: GitHub Actions (ready)
+- **Hosting Options**: Vercel (frontend) + Heroku/Railway (backend)
 - **Monitoring**: Built-in health checks
 
 ---
@@ -193,10 +221,12 @@ BlancaCorreaLawWebApp/
 
 ### Getting Started
 - **README.md** (this file) - Project overview
+- **FIREBASE-SETUP.md** - Firebase configuration (13 min)
 - **INTEGRATION-GUIDE.md** - Frontend-backend integration
-- **DOCKER-GUIDE.md** - Docker deployment
+- **DOCKER-GUIDE.md** - Docker deployment (optional)
 
 ### Deployment
+- **GITHUB-DEPLOYMENT.md** - GitHub repository info
 - **DEPLOYMENT-GUIDE.md** - Production deployment
 - **PRODUCTION-CHECKLIST.md** - Pre-launch checklist
 - **.github/workflows/** - CI/CD pipelines
@@ -217,23 +247,34 @@ BlancaCorreaLawWebApp/
 
 ### Environment Variables
 
-**Backend** (`.env`):
+**Backend** (`backend/.env`):
 ```env
-DATABASE_URL=postgresql://user:pass@localhost:5432/blanca_correa_law
-EMAIL_HOST=smtp.sendgrid.net
-EMAIL_USER=apikey
-EMAIL_PASSWORD=your-sendgrid-api-key
-ATTORNEY_EMAIL=blanca@blancacorrealaw.com
+# Firebase Configuration
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+
+# Email Configuration
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASSWORD=your-gmail-app-password
+EMAIL_FROM=your-email@gmail.com
+ATTORNEY_EMAIL=your-email@gmail.com
+
+# Server
+PORT=3001
 FRONTEND_URL=http://localhost:3000
+NODE_ENV=development
 ```
 
-**Frontend** (`.env.local`):
+**Frontend** (`frontend/.env.local`):
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3001
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-See `.env.example` files for complete configuration options.
+See **FIREBASE-SETUP.md** for detailed configuration instructions.
 
 ---
 
@@ -241,12 +282,15 @@ See `.env.example` files for complete configuration options.
 
 ### Quick Deploy to Production
 
-**Option 1: Vercel + Heroku**
+**Option 1: Vercel + Heroku (Recommended)**
 ```bash
 # Deploy backend to Heroku
 cd backend
 heroku create blanca-correa-law-api
-heroku addons:create heroku-postgresql:mini
+# Set Firebase environment variables
+heroku config:set FIREBASE_PROJECT_ID=your-project-id
+heroku config:set FIREBASE_CLIENT_EMAIL=your-service-account@...
+heroku config:set FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----..."
 git push heroku main
 
 # Deploy frontend to Vercel
@@ -254,14 +298,21 @@ cd frontend
 vercel --prod
 ```
 
-**Option 2: Docker on VPS**
+**Option 2: Railway (Alternative)**
+```bash
+# Railway automatically detects and deploys
+# Just connect your GitHub repository
+# Set environment variables in Railway dashboard
+```
+
+**Option 3: Docker on VPS**
 ```bash
 # On your server
-git clone https://github.com/yourusername/blanca-correa-law.git
-cd blanca-correa-law
+git clone https://github.com/brianstittsr/windsurf_blancacorrealaw.git
+cd windsurf_blancacorrealaw
 cp .env.docker.example .env
-# Edit .env
-docker-compose -f docker-compose.prod.yml up -d
+# Edit .env with Firebase credentials
+docker-compose up -d
 ```
 
 See **DEPLOYMENT-GUIDE.md** for detailed instructions.
@@ -295,23 +346,24 @@ npm test
 
 ## 📊 Project Status
 
-**Completion**: 95% (Production-ready)
+**Completion**: 98% (Production-ready)
 
 **Completed**:
 - ✅ Frontend (9 pages)
 - ✅ Backend API (3 endpoints)
-- ✅ Database schema
-- ✅ Email system
-- ✅ Integration
+- ✅ Firebase/Firestore integration
+- ✅ Email notification system
+- ✅ Frontend-backend integration
+- ✅ GitHub repository deployed
 - ✅ Docker configuration
-- ✅ CI/CD pipelines
-- ✅ Documentation
+- ✅ CI/CD pipelines ready
+- ✅ Comprehensive documentation
 
 **Pending**:
-- ⏳ PostgreSQL instance setup (15 min)
-- ⏳ Email SMTP configuration (10 min)
+- ⏳ Firebase project setup (13 min)
+- ⏳ Gmail app password configuration (5 min)
 - ⏳ Production deployment (1-2 hours)
-- ⏳ Full i18n integration (optional)
+- ⏳ Full i18n integration (optional, future enhancement)
 
 ---
 
@@ -433,17 +485,19 @@ Proprietary - All rights reserved by Blanca Correa Law
 ## 🎉 Acknowledgments
 
 Built with:
-- Next.js 15
+- Next.js 15 (App Router)
 - Express.js
-- PostgreSQL
+- Firebase/Firestore
 - TailwindCSS
 - TypeScript
+- Nodemailer
 - Docker
 
 ---
 
 **Version**: 1.0.0  
 **Status**: Production-Ready  
+**Repository**: https://github.com/brianstittsr/windsurf_blancacorrealaw  
 **Last Updated**: November 30, 2024  
 **Built**: November 2024
 
@@ -451,11 +505,13 @@ Built with:
 
 ## Quick Links
 
+- 🔥 [Firebase Setup Guide](./FIREBASE-SETUP.md) - **Start here!** (13 min)
 - 📖 [Full Documentation](./docs/)
 - 🚀 [Deployment Guide](./DEPLOYMENT-GUIDE.md)
 - 🔗 [Integration Guide](./INTEGRATION-GUIDE.md)
 - ✅ [Production Checklist](./PRODUCTION-CHECKLIST.md)
 - 🐳 [Docker Guide](./DOCKER-GUIDE.md)
 - 📊 [Project Status](./PROJECT-STATUS.md)
+- 💻 [GitHub Repository](https://github.com/brianstittsr/windsurf_blancacorrealaw)
 
 **Ready to launch!** 🚀
