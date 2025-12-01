@@ -6,8 +6,7 @@ import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 
-import { testConnection, closePool } from './config/database';
-import { testEmailConnection } from './config/email';
+import { testFirebaseConnection } from './config/firebase';
 
 // Import routes
 import consultationRoutes from './routes/consultation.routes';
@@ -44,7 +43,7 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/health', (_req, res) => {
   res.status(200).json({
     status: 'ok',
     timestamp: new Date().toISOString(),
@@ -58,7 +57,7 @@ app.use('/api/contact', contactRoutes);
 app.use('/api/assessments', assessmentRoutes);
 
 // 404 handler
-app.use((req, res) => {
+app.use((_req, res) => {
   res.status(404).json({
     error: 'Not Found',
     message: 'The requested resource was not found',
@@ -66,7 +65,7 @@ app.use((req, res) => {
 });
 
 // Error handler
-app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
   console.error('Error:', err);
   
   res.status(err.status || 500).json({
@@ -78,15 +77,12 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 // Start server
 const startServer = async () => {
   try {
-    // Test database connection
-    const dbConnected = await testConnection();
-    if (!dbConnected) {
-      console.error('Failed to connect to database. Exiting...');
+    // Test Firebase connection
+    const firebaseConnected = await testFirebaseConnection();
+    if (!firebaseConnected) {
+      console.error('Failed to connect to Firebase. Exiting...');
       process.exit(1);
     }
-
-    // Test email configuration
-    await testEmailConnection();
 
     // Start listening
     app.listen(PORT, () => {
@@ -101,15 +97,13 @@ const startServer = async () => {
 };
 
 // Graceful shutdown
-process.on('SIGTERM', async () => {
+process.on('SIGTERM', () => {
   console.log('SIGTERM signal received: closing HTTP server');
-  await closePool();
   process.exit(0);
 });
 
-process.on('SIGINT', async () => {
+process.on('SIGINT', () => {
   console.log('SIGINT signal received: closing HTTP server');
-  await closePool();
   process.exit(0);
 });
 
