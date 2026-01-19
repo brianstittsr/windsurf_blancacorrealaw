@@ -1,18 +1,19 @@
 import type { Metadata } from 'next';
-import { Montserrat, Source_Serif_4 } from 'next/font/google';
+import { Playfair_Display, Lato } from 'next/font/google';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
-const montserrat = Montserrat({
-  subsets: ['latin', 'latin-ext'],
-  variable: '--font-montserrat',
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
   display: 'swap',
 });
 
-const sourceSerif = Source_Serif_4({
-  subsets: ['latin', 'latin-ext'],
-  variable: '--font-source-serif',
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  variable: '--font-lato',
   display: 'swap',
 });
 
@@ -36,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${sourceSerif.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${lato.variable}`}>
       <body>
         <Navigation />
         {children}

@@ -8,50 +8,65 @@
   }
   
   body {
-    @apply font-sans text-neutral-900 antialiased;
-  }
-
-  /* Multilingual typography adjustments */
-  :lang(es) {
-    @apply tracking-tight;
+    @apply font-sans text-neutral-700 antialiased bg-neutral-50;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-semibold;
+    @apply font-serif font-semibold text-neutral-800 tracking-tight;
   }
 
   p {
-    @apply font-serif;
+    @apply font-sans leading-relaxed;
+  }
+
+  a {
+    @apply transition-colors duration-200;
   }
 }
 
 @layer components {
-  /* Pathway motif - decorative element */
-  .pathway-line {
-    @apply relative;
-  }
-  
-  .pathway-line::before {
-    content: '';
-    @apply absolute left-0 top-1/2 w-full h-0.5 bg-gradient-to-r from-primary/20 via-secondary/40 to-accent/20;
+  /* Subtle decorative line */
+  .divider-subtle {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent;
   }
 
-  /* Card components */
-  .card-pathway {
-    @apply bg-white rounded-pathway shadow-card border border-neutral-200 p-6 transition-all duration-300 hover:shadow-soft hover:border-primary/30;
+  /* Card components - Elegant, rounded style */
+  .card-elegant {
+    @apply bg-white rounded-2xl shadow-sm border border-neutral-200 p-8 transition-all duration-300 hover:shadow-md hover:border-primary/20;
   }
 
-  /* Button variants */
+  .card-icon {
+    @apply bg-white rounded-xl shadow-sm border border-neutral-200 p-6 transition-all duration-300 hover:shadow-md hover:border-primary/30 text-center;
+  }
+
+  /* Button variants - Soft, elegant style */
   .btn-primary {
-    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-primary-600 focus:ring-4 focus:ring-primary/20 active:scale-95;
+    @apply bg-primary text-white px-8 py-3.5 rounded-xl font-medium transition-all duration-200 hover:bg-primary-600 focus:ring-4 focus:ring-primary/20 active:scale-[0.98] shadow-sm hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-secondary-600 focus:ring-4 focus:ring-secondary/20 active:scale-95;
+    @apply bg-secondary text-white px-8 py-3.5 rounded-xl font-medium transition-all duration-200 hover:bg-secondary-600 focus:ring-4 focus:ring-secondary/20 active:scale-[0.98] shadow-sm hover:shadow-md;
   }
 
   .btn-outline {
-    @apply border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-primary hover:text-white focus:ring-4 focus:ring-primary/20 active:scale-95;
+    @apply border border-primary text-primary px-8 py-3.5 rounded-xl font-medium transition-all duration-200 hover:bg-primary-50 focus:ring-4 focus:ring-primary/20 active:scale-[0.98];
+  }
+
+  .btn-soft {
+    @apply bg-primary-50 text-primary-700 px-8 py-3.5 rounded-xl font-medium transition-all duration-200 hover:bg-primary-100 focus:ring-4 focus:ring-primary/20;
+  }
+
+  /* Section backgrounds */
+  .section-ivory {
+    @apply bg-neutral-50;
+  }
+
+  .section-white {
+    @apply bg-white;
+  }
+
+  .section-gradient {
+    @apply bg-gradient-to-b from-neutral-50 to-white;
   }
 }
 

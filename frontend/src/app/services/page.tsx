@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Heart, Briefcase, Flag, Shield, FileText, Users, ArrowRight, CheckCircle } from 'lucide-react';
 
 export const metadata = {
@@ -98,21 +99,33 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20">
+      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20 overflow-hidden">
         <div className="container-custom">
-          <div className="max-w-3xl">
-            <h1 className="text-display font-bold text-neutral-900 mb-6">
-              Immigration Legal Services
-            </h1>
-            <p className="text-body text-neutral-700 mb-8">
-              Comprehensive immigration law services tailored to your unique situation. 
-              From family reunification to citizenship, we guide you through every step 
-              of your immigration journey.
-            </p>
-            <Link href="/consultation" className="btn-primary inline-flex items-center gap-2">
-              Schedule Free Consultation
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-xl">
+              <h1 className="text-display font-serif font-bold text-neutral-900 mb-6">
+                Immigration Legal Services
+              </h1>
+              <p className="text-body text-neutral-700 mb-8">
+                Comprehensive immigration law services tailored to your unique situation. 
+                From family reunification to citizenship, we guide you through every step 
+                of your immigration journey.
+              </p>
+              <Link href="/consultation" className="btn-primary inline-flex items-center gap-2">
+                Schedule Free Consultation
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+            <div className="relative hidden lg:block">
+              <Image
+                src="/images/legal-scales.jpg"
+                alt="Scales of Justice - Fair Legal Representation"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-xl object-cover"
+              />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
+            </div>
           </div>
         </div>
       </section>

@@ -9,62 +9,62 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Primary colors from "Pathways to Belonging" theme
+        // Soft Rose & Cream - Elegant Immigration Law Theme
         primary: {
-          50: '#fef5f1',
-          100: '#fde8df',
-          200: '#fbcfbe',
-          300: '#f7ab92',
-          400: '#f27d64',
-          500: '#e85a3f',
-          600: '#d54028',
-          700: '#b3301f',
-          800: '#942b1e',
-          900: '#7b281e',
-          DEFAULT: '#d54028', // Terracotta
+          50: '#fdf8f8',
+          100: '#faeeed',
+          200: '#f5dcd9',
+          300: '#ecc4bf',
+          400: '#dfa49c',
+          500: '#cf867c',
+          600: '#b86b60',
+          700: '#9a574d',
+          800: '#804a42',
+          900: '#6b403a',
+          DEFAULT: '#c4968f', // Dusty Rose - soft, elegant
         },
         secondary: {
-          50: '#f0f9f9',
-          100: '#dbf0f0',
-          200: '#bae1e2',
-          300: '#8bcbce',
-          400: '#55adb3',
-          500: '#3a9199',
-          600: '#327581',
-          700: '#2e5f6a',
-          800: '#2c4f58',
-          900: '#28434b',
-          DEFAULT: '#2e5f6a', // Deep Teal
+          50: '#f7f8f7',
+          100: '#eef0ee',
+          200: '#dce1dc',
+          300: '#c2cbc2',
+          400: '#a1afa1',
+          500: '#839583',
+          600: '#6a7b6a',
+          700: '#566356',
+          800: '#475247',
+          900: '#3c453c',
+          DEFAULT: '#a1afa1', // Muted Sage - calm, trustworthy
         },
         accent: {
-          50: '#fefce8',
-          100: '#fef9c3',
-          200: '#fef08a',
-          300: '#fde047',
-          400: '#facc15',
-          500: '#eab308',
-          600: '#ca8a04',
-          700: '#a16207',
-          800: '#854d0e',
-          900: '#713f12',
-          DEFAULT: '#facc15', // Sunrise Yellow
+          50: '#fdfcfa',
+          100: '#faf6f0',
+          200: '#f3ebdd',
+          300: '#e9dbc4',
+          400: '#dcc5a3',
+          500: '#ceae84',
+          600: '#be9768',
+          700: '#9f7a52',
+          800: '#826446',
+          900: '#6b533c',
+          DEFAULT: '#d4b896', // Warm Gold/Taupe
         },
         neutral: {
-          50: '#fafaf9',
-          100: '#f5f5f4',
-          200: '#e7e5e4',
-          300: '#d6d3d1',
-          400: '#a8a29e',
-          500: '#78716c',
-          600: '#57534e',
-          700: '#44403c',
-          800: '#292524',
-          900: '#1c1917',
+          50: '#fdfcfa',  // Warm cream background
+          100: '#faf8f5',
+          200: '#f5f2ee',
+          300: '#ebe7e2',
+          400: '#d9d4cd',
+          500: '#b5aea5',
+          600: '#857d74',  // Warm gray for text
+          700: '#5c564f',
+          800: '#3d3935',
+          900: '#292725',
         },
       },
       fontFamily: {
-        sans: ['Montserrat', 'system-ui', 'sans-serif'],
-        serif: ['Source Serif Pro', 'Georgia', 'serif'],
+        sans: ['var(--font-lato)', 'Lato', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'Playfair Display', 'Georgia', 'serif'],
       },
       fontSize: {
         // Mobile-first typography scale

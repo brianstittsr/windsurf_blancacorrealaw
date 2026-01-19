@@ -1,204 +1,252 @@
 import Link from 'next/link';
-import { ArrowRight, Globe, Heart, MapPin, Scale, Users } from 'lucide-react';
+import Image from 'next/image';
+import { 
+  ArrowRight, 
+  Shield, 
+  Heart, 
+  Scale, 
+  FileText, 
+  Users, 
+  Globe,
+  CheckCircle,
+  Clock,
+  MessageCircle,
+  Award,
+  Lock
+} from 'lucide-react';
+import SectionDivider from '@/components/SectionDivider';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20 md:py-32">
-        <div className="container-custom">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-soft mb-6">
-              <Globe className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-neutral-700">
-                Serving North Carolina • English & Spanish
-              </span>
-            </div>
-            
-            <h1 className="text-display font-bold text-neutral-900 mb-6">
-              Your Bridge to Immigration Success in{' '}
-              <span className="text-primary">North Carolina</span>
-            </h1>
-            
-            <p className="text-body text-neutral-700 mb-8 max-w-2xl">
-              Navigate your immigration journey with confidence. Get personalized guidance, 
-              understand your options, and take the next step toward belonging.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/assessment" className="btn-primary inline-flex items-center justify-center gap-2">
-                Find Your Pathway
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link href="/consultation" className="btn-outline inline-flex items-center justify-center gap-2">
-                Schedule Consultation
+    <main className="min-h-screen bg-neutral-50">
+      {/* Hero Section - Soft, Elegant */}
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        {/* Decorative wave background */}
+        <div className="absolute inset-0 overflow-hidden">
+          <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="rgba(196, 150, 143, 0.1)" d="M0,160L48,176C96,192,192,224,288,213.3C384,203,480,149,576,138.7C672,128,768,160,864,181.3C960,203,1056,213,1152,197.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
+          <svg className="absolute top-0 right-0 w-1/2 h-full opacity-30" viewBox="0 0 400 400" preserveAspectRatio="none">
+            <path fill="rgba(196, 150, 143, 0.15)" d="M400,0 Q350,200 400,400 L400,0Z"></path>
+          </svg>
+        </div>
+
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-lg">
+              <h1 className="text-4xl md:text-5xl font-serif font-medium text-neutral-800 leading-tight mb-6">
+                Trusted Immigration Guidance<br />
+                <span className="text-primary">with Compassion and Integrity</span>
+              </h1>
+              
+              <p className="text-lg text-neutral-600 leading-relaxed mb-8">
+                Experienced support to navigate your path to a new beginning.
+              </p>
+              
+              <Link 
+                href="/consultation" 
+                className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded-full font-medium transition-all shadow-md hover:shadow-lg"
+              >
+                Schedule a Consultation
               </Link>
             </div>
 
-            {/* Language Toggle */}
-            <div className="mt-8 flex items-center gap-3">
-              <button className="text-sm font-medium text-primary underline underline-offset-4">
-                English
-              </button>
-              <span className="text-neutral-400">|</span>
-              <button className="text-sm font-medium text-neutral-600 hover:text-primary transition-colors">
-                Español
-              </button>
+            {/* Hero Image */}
+            <div className="relative hidden lg:flex justify-end">
+              <div className="relative">
+                {/* Decorative statue background */}
+                <div className="absolute -left-16 top-1/2 -translate-y-1/2 w-48 h-64 opacity-20">
+                  <Image
+                    src="/images/statue-liberty.jpg"
+                    alt=""
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
+                  <Image
+                    src="/images/lawyer-consultation.jpg"
+                    alt="Professional immigration attorney"
+                    width={450}
+                    height={500}
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Decorative pathway element */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent opacity-20"></div>
       </section>
 
-      {/* Immigration Pathways Section */}
-      <section className="py-20 bg-white">
+      {/* Meet the Founder */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-h1 font-bold text-neutral-900 mb-4">
-              Explore Your Immigration Pathways
-            </h2>
-            <p className="text-body text-neutral-700 max-w-2xl mx-auto">
-              Every immigration journey is unique. Discover which pathway is right for you.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Family-Based Immigration */}
-            <div className="card-pathway group">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <Heart className="w-6 h-6 text-primary" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            <div className="relative flex justify-center">
+              <div className="relative">
+                {/* Decorative background shape */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-primary-100 to-primary-50 rounded-full opacity-50"></div>
+                <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="/images/attorney-professional.jpg"
+                    alt="Blanca Correa, Immigration Attorney"
+                    width={350}
+                    height={420}
+                    className="object-cover"
+                  />
+                </div>
               </div>
-              <h3 className="text-h3 font-bold text-neutral-900 mb-3">
+            </div>
+            
+            <div>
+              <SectionDivider title="Meet the Founder" className="justify-start mb-6" />
+              <h2 className="text-2xl md:text-3xl font-serif font-medium text-neutral-800 mb-2">
+                Blanca Correa, Esq.
+              </h2>
+              <p className="text-primary font-medium mb-4">Dedicated Immigration Attorney</p>
+              <p className="text-neutral-600 leading-relaxed mb-6">
+                Over 15 Years of Experience Helping Immigrant Families
+              </p>
+
+              <Link 
+                href="/about" 
+                className="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all"
+              >
+                Learn More About Blanca
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Services - Icon Cards */}
+      <section className="py-16 bg-neutral-50">
+        <div className="container-custom">
+          <SectionDivider title="Our Services" className="mb-12" />
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {/* Family-Based Immigration */}
+            <Link href="/pathways/family" className="bg-white rounded-2xl p-6 text-center shadow-sm border border-neutral-100 hover:shadow-md hover:border-primary/20 transition-all group">
+              <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-100 transition-colors">
+                <Users className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-sm font-medium text-neutral-700">
                 Family-Based Immigration
               </h3>
-              <p className="text-neutral-700 mb-4">
-                Reunite with loved ones. Navigate the process of bringing family members to the United States.
-              </p>
-              <Link href="/pathways/family" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
-                Learn More
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+            </Link>
 
-            {/* Employment Visas */}
-            <div className="card-pathway group">
-              <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors">
-                <Users className="w-6 h-6 text-secondary" />
+            {/* Adjustment of Status */}
+            <Link href="/services" className="bg-white rounded-2xl p-6 text-center shadow-sm border border-neutral-100 hover:shadow-md hover:border-primary/20 transition-all group">
+              <div className="w-16 h-16 bg-secondary-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary-100 transition-colors">
+                <FileText className="w-8 h-8 text-secondary-600" />
               </div>
-              <h3 className="text-h3 font-bold text-neutral-900 mb-3">
-                Employment Visas
+              <h3 className="text-sm font-medium text-neutral-700">
+                Adjustment of Status
               </h3>
-              <p className="text-neutral-700 mb-4">
-                Work in the United States. Explore employment-based visa options for professionals and workers.
-              </p>
-              <Link href="/pathways/employment" className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all">
-                Learn More
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+            </Link>
 
-            {/* Citizenship */}
-            <div className="card-pathway group">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-                <Scale className="w-6 h-6 text-accent-700" />
+            {/* Consular Processing */}
+            <Link href="/services" className="bg-white rounded-2xl p-6 text-center shadow-sm border border-neutral-100 hover:shadow-md hover:border-primary/20 transition-all group">
+              <div className="w-16 h-16 bg-accent-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-accent-100 transition-colors">
+                <Globe className="w-8 h-8 text-accent-600" />
               </div>
-              <h3 className="text-h3 font-bold text-neutral-900 mb-3">
-                Citizenship & Naturalization
+              <h3 className="text-sm font-medium text-neutral-700">
+                Consular Processing
               </h3>
-              <p className="text-neutral-700 mb-4">
-                Become a U.S. citizen. Understand the naturalization process and requirements.
-              </p>
-              <Link href="/pathways/citizenship" className="inline-flex items-center gap-2 text-accent-700 font-semibold hover:gap-3 transition-all">
-                Learn More
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
+            </Link>
 
-          <div className="text-center mt-12">
-            <Link href="/assessment" className="btn-primary inline-flex items-center gap-2">
-              Take Our Free Assessment
-              <ArrowRight className="w-5 h-5" />
+            {/* VAWA & Humanitarian */}
+            <Link href="/services" className="bg-white rounded-2xl p-6 text-center shadow-sm border border-neutral-100 hover:shadow-md hover:border-primary/20 transition-all group">
+              <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-100 transition-colors">
+                <Shield className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-sm font-medium text-neutral-700">
+                VAWA & Humanitarian Relief
+              </h3>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-neutral-50">
+      {/* Why Choose Us */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-16">
-            <h2 className="text-h1 font-bold text-neutral-900 mb-4">
-              Why Choose Blanca Correa Law
-            </h2>
-            <p className="text-body text-neutral-700 max-w-2xl mx-auto">
-              Experience the difference of truly bilingual, culturally-informed immigration guidance.
-            </p>
+          <SectionDivider title="Why Choose Us?" className="mb-12" />
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-secondary-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Scale className="w-8 h-8 text-secondary-600" />
+              </div>
+              <h3 className="text-sm font-medium text-neutral-700">Licensed & Accredited</h3>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <Lock className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-sm font-medium text-neutral-700">Confidential & Caring</h3>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-accent-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <MessageCircle className="w-8 h-8 text-accent-600" />
+              </div>
+              <h3 className="text-sm font-medium text-neutral-700">Bilingual Support</h3>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-secondary-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <FileText className="w-8 h-8 text-secondary-600" />
+              </div>
+              <h3 className="text-sm font-medium text-neutral-700">Detail-Oriented Guidance</h3>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <Globe className="w-5 h-5 text-white" />
+      {/* What to Expect - Process Steps */}
+      <section className="py-16 bg-neutral-50">
+        <div className="container-custom">
+          <SectionDivider title="What to Expect" className="mb-12" />
+
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="relative inline-block mb-4">
+                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                    <span className="text-xl font-serif font-semibold text-primary">1</span>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                  Authentic Bilingual Service
-                </h3>
-                <p className="text-neutral-700">
-                  Not just translation—culturally adapted content and communication in both English and Spanish.
+                <h3 className="font-serif font-medium text-neutral-800 mb-2">Initial Consultation</h3>
+                <p className="text-sm text-neutral-600">
+                  Take our easy assessment to understand the initial steps for your case.
                 </p>
               </div>
-            </div>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-white" />
+              <div className="text-center">
+                <div className="relative inline-block mb-4">
+                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                    <span className="text-xl font-serif font-semibold text-primary">2</span>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                  Local North Carolina Expertise
-                </h3>
-                <p className="text-neutral-700">
-                  Deep understanding of regional USCIS offices, procedures, and the Triangle area immigrant community.
+                <h3 className="font-serif font-medium text-neutral-800 mb-2">Case Preparation</h3>
+                <p className="text-sm text-neutral-600">
+                  Select your priorities and concentration for your case review to continue.
                 </p>
               </div>
-            </div>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-accent-600 rounded-lg flex items-center justify-center">
-                  <Heart className="w-5 h-5 text-white" />
+              <div className="text-center">
+                <div className="relative inline-block mb-4">
+                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
+                    <span className="text-xl font-serif font-semibold text-primary">3</span>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                  Human-Centered Approach
-                </h3>
-                <p className="text-neutral-700">
-                  We understand the emotional journey of immigration and provide compassionate, personalized guidance.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                  <Scale className="w-5 h-5 text-white" />
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                  Interactive Guidance Tools
-                </h3>
-                <p className="text-neutral-700">
-                  Self-service assessment tools help you understand your options before your first consultation.
+                <h3 className="font-serif font-medium text-neutral-800 mb-2">Guidance & Support</h3>
+                <p className="text-sm text-neutral-600">
+                  Seek a flow for your interests and case to ensure the best for your pathway.
                 </p>
               </div>
             </div>
@@ -207,26 +255,41 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary-700">
-        <div className="container-custom text-center">
-          <h2 className="text-h1 font-bold text-white mb-6">
-            Ready to Start Your Immigration Journey?
-          </h2>
-          <p className="text-xl text-primary-50 mb-8 max-w-2xl mx-auto">
-            Take the first step today. Schedule a consultation or use our free assessment tool to explore your options.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/consultation" className="bg-white text-primary px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:bg-primary-50 focus:ring-4 focus:ring-white/20 inline-flex items-center justify-center gap-2">
-              Schedule Consultation
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link href="/assessment" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 hover:bg-white/10 focus:ring-4 focus:ring-white/20 inline-flex items-center justify-center gap-2">
-              Free Assessment Tool
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-serif font-medium text-neutral-800 mb-4">
+              Ready to Begin Your Immigration Journey?
+            </h2>
+            <p className="text-neutral-600 mb-8">
+              Contact us today to find out how we can assist you.
+            </p>
+            <Link 
+              href="/consultation" 
+              className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-full font-medium transition-all"
+            >
+              — Get in Touch —
             </Link>
           </div>
         </div>
       </section>
 
+      {/* Footer Trust Strip */}
+      <section className="py-6 bg-neutral-100 border-t border-neutral-200">
+        <div className="container-custom">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-xs text-neutral-500">
+            <div className="flex items-center gap-2">
+              <span>Member of</span>
+              <span className="font-semibold">AILA</span>
+            </div>
+            <div>Licensed & Insured</div>
+            <div className="flex gap-4">
+              <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link href="/disclaimer" className="hover:text-primary transition-colors">Disclaimer</Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 
 export default function ContactPage() {
@@ -64,16 +65,28 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20">
+      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20 overflow-hidden">
         <div className="container-custom">
-          <div className="max-w-3xl">
-            <h1 className="text-display font-bold text-neutral-900 mb-6">
-              Contact Us
-            </h1>
-            <p className="text-body text-neutral-700">
-              Have questions about your immigration case? We're here to help. 
-              Reach out to schedule a consultation or get answers to your questions.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-xl">
+              <h1 className="text-display font-serif font-bold text-neutral-900 mb-6">
+                Contact Us
+              </h1>
+              <p className="text-body text-neutral-700">
+                Have questions about your immigration case? We're here to help. 
+                Reach out to schedule a consultation or get answers to your questions.
+              </p>
+            </div>
+            <div className="relative hidden lg:block">
+              <Image
+                src="/images/office-welcome.jpg"
+                alt="Welcoming Law Office"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-xl object-cover"
+              />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/10 rounded-full blur-xl"></div>
+            </div>
           </div>
         </div>
       </section>

@@ -2,77 +2,57 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, X, Globe, Phone } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState<'en' | 'es'>('en');
-
-  const toggleLanguage = () => {
-    setCurrentLanguage(currentLanguage === 'en' ? 'es' : 'en');
-    // TODO: Integrate with next-i18next router
-  };
-
   const navLinks = [
-    { href: '/about', label: currentLanguage === 'en' ? 'About' : 'Acerca de' },
-    { href: '/services', label: currentLanguage === 'en' ? 'Services' : 'Servicios' },
-    { href: '/pathways', label: currentLanguage === 'en' ? 'Immigration Pathways' : 'Caminos Migratorios' },
-    { href: '/resources', label: currentLanguage === 'en' ? 'Resources' : 'Recursos' },
-    { href: '/contact', label: currentLanguage === 'en' ? 'Contact' : 'Contacto' },
+    { href: '/about', label: 'About' },
+    { href: '/services', label: 'Services' },
+    { href: '/pathways', label: 'Immigration Pathways' },
+    { href: '/resources', label: 'Resources' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   return (
-    <nav className="bg-white border-b border-neutral-200 sticky top-0 z-50 shadow-sm">
+    <nav className="bg-white/95 backdrop-blur-sm border-b border-neutral-200 sticky top-0 z-50">
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-18">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-600 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-              <span className="text-white font-bold text-xl">BC</span>
+            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
+              <span className="text-white font-semibold text-lg">BC</span>
             </div>
             <div className="hidden sm:block">
-              <div className="font-bold text-neutral-900 text-lg leading-tight">
+              <div className="font-serif font-semibold text-neutral-800 text-lg leading-tight">
                 Blanca Correa Law
               </div>
-              <div className="text-xs text-neutral-600">
-                {currentLanguage === 'en' ? 'Immigration Attorney' : 'Abogada de Inmigración'}
+              <div className="text-xs text-neutral-500">
+                Immigration Attorney
               </div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-neutral-700 hover:text-primary font-medium transition-colors relative group"
+                className="text-neutral-600 hover:text-primary text-sm font-medium transition-colors"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
               </Link>
             ))}
           </div>
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-4">
-            {/* Language Toggle */}
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-neutral-100 transition-colors"
-              aria-label={currentLanguage === 'en' ? 'Switch to Spanish' : 'Cambiar a inglés'}
-            >
-              <Globe className="w-4 h-4 text-neutral-600" />
-              <span className="text-sm font-medium text-neutral-700">
-                {currentLanguage === 'en' ? 'ES' : 'EN'}
-              </span>
-            </button>
-
             {/* Phone */}
             <a
               href="tel:+19195551234"
-              className="flex items-center gap-2 px-4 py-2 text-secondary hover:text-secondary-600 font-medium transition-colors"
+              className="flex items-center gap-2 text-sm text-neutral-600 hover:text-primary transition-colors"
             >
               <Phone className="w-4 h-4" />
               <span className="hidden xl:inline">(919) 555-1234</span>
@@ -81,9 +61,9 @@ export default function Navigation() {
             {/* CTA Button */}
             <Link
               href="/consultation"
-              className="btn-primary"
+              className="bg-primary text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-600 transition-colors"
             >
-              {currentLanguage === 'en' ? 'Schedule Consultation' : 'Agendar Consulta'}
+              Schedule Consultation
             </Link>
           </div>
 
@@ -117,17 +97,6 @@ export default function Navigation() {
               ))}
 
               <div className="pt-4 border-t border-neutral-200 flex flex-col gap-3">
-                {/* Language Toggle Mobile */}
-                <button
-                  onClick={toggleLanguage}
-                  className="flex items-center gap-2 px-4 py-3 rounded-lg bg-neutral-50 hover:bg-neutral-100 transition-colors"
-                >
-                  <Globe className="w-5 h-5 text-neutral-600" />
-                  <span className="font-medium text-neutral-700">
-                    {currentLanguage === 'en' ? 'Cambiar a Español' : 'Switch to English'}
-                  </span>
-                </button>
-
                 {/* Phone Mobile */}
                 <a
                   href="tel:+19195551234"
@@ -143,7 +112,7 @@ export default function Navigation() {
                   className="btn-primary text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {currentLanguage === 'en' ? 'Schedule Consultation' : 'Agendar Consulta'}
+                  Schedule Consultation
                 </Link>
               </div>
             </div>

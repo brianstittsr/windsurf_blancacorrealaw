@@ -5,24 +5,24 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-neutral-900 text-neutral-300">
+    <footer className="bg-neutral-800 text-neutral-400">
       {/* Main Footer Content */}
       <div className="container-custom py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">BC</span>
+              <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-white font-semibold text-lg">BC</span>
               </div>
               <div>
-                <div className="font-bold text-white text-lg leading-tight">
+                <div className="font-serif font-semibold text-white text-lg leading-tight">
                   Blanca Correa Law
                 </div>
               </div>
             </div>
-            <p className="text-sm mb-6">
-              Your Bridge to Immigration Success in North Carolina
+            <p className="text-sm mb-6 leading-relaxed">
+              Trusted immigration guidance with compassion and integrity.
             </p>
             <div className="flex gap-4">
               <a
@@ -156,7 +156,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-neutral-800">
+      <div className="border-t border-neutral-700">
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
             <p>
@@ -173,6 +173,12 @@ export default function Footer() {
                 Legal Disclaimer
               </Link>
             </div>
+          </div>
+          <div className="mt-4 pt-4 border-t border-neutral-700 text-xs text-neutral-500 text-center">
+            <p>
+              This website is for informational purposes only and does not constitute legal advice. 
+              Contacting us does not create an attorney-client relationship.
+            </p>
           </div>
         </div>
       </div>

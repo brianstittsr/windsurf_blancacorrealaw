@@ -10,18 +10,30 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20">
+      {/* Hero Section with Image */}
+      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-20 overflow-hidden">
         <div className="container-custom">
-          <div className="max-w-3xl">
-            <h1 className="text-display font-bold text-neutral-900 mb-6">
-              About Blanca Correa Law
-            </h1>
-            <p className="text-body text-neutral-700">
-              We believe that every immigration journey deserves personalized attention, 
-              cultural understanding, and unwavering advocacy. Our mission is to be your 
-              bridge to immigration success in North Carolina.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-xl">
+              <h1 className="text-display font-serif font-bold text-neutral-900 mb-6">
+                About Blanca Correa Law
+              </h1>
+              <p className="text-body text-neutral-700">
+                We believe that every immigration journey deserves personalized attention, 
+                cultural understanding, and unwavering advocacy. Our mission is to be your 
+                bridge to immigration success in North Carolina.
+              </p>
+            </div>
+            <div className="relative hidden lg:block">
+              <Image
+                src="/images/courthouse.jpg"
+                alt="American Courthouse - Symbol of Justice"
+                width={600}
+                height={400}
+                className="rounded-2xl shadow-xl object-cover"
+              />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -30,18 +42,17 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image Placeholder */}
+            {/* Attorney Image */}
             <div className="order-2 lg:order-1">
-              <div className="aspect-[4/5] bg-gradient-to-br from-primary-100 to-secondary-100 rounded-pathway overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center text-neutral-400">
-                  {/* Placeholder for attorney photo */}
-                  <div className="text-center">
-                    <div className="w-32 h-32 bg-white rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <Scale className="w-16 h-16 text-primary" />
-                    </div>
-                    <p className="text-sm">Attorney Photo</p>
-                  </div>
-                </div>
+              <div className="relative">
+                <Image
+                  src="/images/lawyer-consultation.jpg"
+                  alt="Professional Immigration Attorney"
+                  width={500}
+                  height={625}
+                  className="rounded-2xl shadow-xl object-cover"
+                />
+                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/20 rounded-full blur-xl"></div>
               </div>
             </div>
 

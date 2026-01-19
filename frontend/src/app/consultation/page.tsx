@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Calendar, Clock, User, Mail, Phone, MessageSquare, CheckCircle } from 'lucide-react';
 
 export default function ConsultationPage() {
@@ -77,16 +78,28 @@ export default function ConsultationPage() {
   return (
     <main className="min-h-screen bg-neutral-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-16">
+      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-16 overflow-hidden">
         <div className="container-custom">
-          <div className="max-w-3xl">
-            <h1 className="text-display font-bold text-neutral-900 mb-4">
-              Schedule Your Consultation
-            </h1>
-            <p className="text-body text-neutral-700">
-              Take the first step toward your immigration goals. Schedule a personalized 
-              consultation to discuss your case and explore your options.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-xl">
+              <h1 className="text-display font-serif font-bold text-neutral-900 mb-4">
+                Schedule Your Consultation
+              </h1>
+              <p className="text-body text-neutral-700">
+                Take the first step toward your immigration goals. Schedule a personalized 
+                consultation to discuss your case and explore your options.
+              </p>
+            </div>
+            <div className="relative hidden lg:block">
+              <Image
+                src="/images/gavel-law.jpg"
+                alt="Legal Gavel - Professional Legal Services"
+                width={500}
+                height={350}
+                className="rounded-2xl shadow-xl object-cover"
+              />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-accent/10 rounded-full blur-xl"></div>
+            </div>
           </div>
         </div>
       </section>
