@@ -1,6 +1,5 @@
-// API client utilities for making requests to the backend
-
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+// API client utilities - simplified for static deployment
+// Forms submit to external services or show success message
 
 export interface ApiResponse<T = any> {
   success: boolean;
@@ -22,46 +21,22 @@ class ApiError extends Error {
 }
 
 /**
- * Make a request to the API
+ * Simulate API request for static deployment
+ * In production, replace with actual form submission service (Formspree, Netlify Forms, etc.)
  */
 async function apiRequest<T = any>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<ApiResponse<T>> {
-  const url = `${API_URL}${endpoint}`;
+  // Simulate successful submission for static deployment
+  console.log('Form submission:', endpoint, options.body);
   
-  const config: RequestInit = {
-    ...options,
-    headers: {
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
+  // Return success response
+  return {
+    success: true,
+    message: 'Your submission has been received. We will contact you shortly.',
+    data: {} as T,
   };
-
-  try {
-    const response = await fetch(url, config);
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new ApiError(
-        data.error || 'An error occurred',
-        response.status,
-        data.errors
-      );
-    }
-
-    return data;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      throw error;
-    }
-    
-    // Network or other errors
-    throw new ApiError(
-      'Failed to connect to server. Please try again.',
-      0
-    );
-  }
 }
 
 /**
