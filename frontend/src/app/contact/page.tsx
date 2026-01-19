@@ -112,8 +112,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-neutral-900 mb-1">Office Location</h3>
                     <p className="text-neutral-700">
-                      123 Main Street, Suite 200<br />
-                      Raleigh, NC 27601
+                      The Correa Firm<br />
+                      9132 Wooden Road<br />
+                      Raleigh, NC 27617
                     </p>
                     <a 
                       href="https://maps.google.com" 
@@ -136,10 +137,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-neutral-900 mb-1">Phone</h3>
                     <a 
-                      href="tel:+19195551234" 
+                      href="tel:+19195613670" 
                       className="text-neutral-700 hover:text-secondary transition-colors"
                     >
-                      (919) 555-1234
+                      (919) 561-3670
                     </a>
                     <p className="text-sm text-neutral-600 mt-1">
                       Se habla español
@@ -157,10 +158,10 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-neutral-900 mb-1">Email</h3>
                     <a 
-                      href="mailto:info@blancacorrealaw.com" 
+                      href="mailto:AttorneyBlancaCorrea@gmail.com" 
                       className="text-neutral-700 hover:text-accent-700 transition-colors"
                     >
-                      info@blancacorrealaw.com
+                      AttorneyBlancaCorrea@gmail.com
                     </a>
                   </div>
                 </div>
@@ -248,7 +249,7 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                      placeholder="(919) 555-1234"
+                      placeholder="(919) 561-3670"
                     />
                   </div>
 
@@ -363,11 +364,11 @@ export default function ContactPage() {
               please call us immediately for urgent assistance.
             </p>
             <a 
-              href="tel:+19195551234" 
+              href="tel:+19195613670" 
               className="btn-primary inline-flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
-              Call Now: (919) 555-1234
+              Call Now: (919) 561-3670
             </a>
           </div>
         </div>

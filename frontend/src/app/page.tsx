@@ -53,26 +53,15 @@ export default function Home() {
 
             {/* Hero Image */}
             <div className="relative hidden lg:flex justify-end">
-              <div className="relative">
-                {/* Decorative statue background */}
-                <div className="absolute -left-16 top-1/2 -translate-y-1/2 w-48 h-64 opacity-20">
-                  <Image
-                    src="/images/statue-liberty.jpg"
-                    alt=""
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src="/images/lawyer-consultation.jpg"
-                    alt="Professional immigration attorney"
-                    width={450}
-                    height={500}
-                    className="object-cover"
-                    priority
-                  />
-                </div>
+              <div className="relative z-10 rounded-2xl overflow-hidden shadow-xl">
+                <Image
+                  src="/images/lawyer-consultation.jpg"
+                  alt="Professional immigration attorney"
+                  width={450}
+                  height={500}
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
           </div>

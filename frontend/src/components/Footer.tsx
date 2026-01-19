@@ -17,7 +17,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-serif font-semibold text-white text-lg leading-tight">
-                  Blanca Correa Law
+                  The Correa Firm
                 </div>
               </div>
             </div>
@@ -126,20 +126,21 @@ export default function Footer() {
               <li className="flex gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <div className="text-sm">
-                  123 Main Street<br />
-                  Raleigh, NC 27601
+                  The Correa Firm<br />
+                  9132 Wooden Road<br />
+                  Raleigh, NC 27617
                 </div>
               </li>
               <li className="flex gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+19195551234" className="text-sm hover:text-white transition-colors">
-                  (919) 555-1234
+                <a href="tel:+19195613670" className="text-sm hover:text-white transition-colors">
+                  (919) 561-3670
                 </a>
               </li>
               <li className="flex gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:info@blancacorrealaw.com" className="text-sm hover:text-white transition-colors">
-                  info@blancacorrealaw.com
+                <a href="mailto:AttorneyBlancaCorrea@gmail.com" className="text-sm hover:text-white transition-colors">
+                  AttorneyBlancaCorrea@gmail.com
                 </a>
               </li>
             </ul>
@@ -160,7 +161,7 @@ export default function Footer() {
         <div className="container-custom py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
             <p>
-              © {currentYear} Blanca Correa Law. All rights reserved.
+              © {currentYear} The Correa Firm. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link href="/privacy" className="hover:text-white transition-colors">
