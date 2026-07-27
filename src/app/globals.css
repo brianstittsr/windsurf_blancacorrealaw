@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-sans text-neutral-700 antialiased bg-neutral-50;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-semibold text-neutral-800 tracking-tight;
+  }
+
+  p {
+    @apply font-sans leading-relaxed;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Subtle decorative line */
+  .divider-subtle {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent;
+  }
+
+  /* Card components - Elegant, rounded style */
+  .card-elegant {
+    @apply bg-white rounded-2xl shadow-sm border border-neutral-200 p-8 transition-all duration-300 hover:shadow-md hover:border-primary/20;
+  }
+
+  .card-icon {
+    @apply bg-white rounded-xl shadow-sm border border-neutral-200 p-6 transition-all duration-300 hover:shadow-md hover:border-primary/30 text-center;
+  }
+
+  /* Button variants - Soft, elegant style */
+  .btn-primary {
+    @apply bg-primary text-white px-8 py-3.5 rounded-xl font-medium transition-all duration-200 hover:bg-primary-600 focus:ring-4 focus:ring-primary/20 active:scale-[0.98] shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-8 py-3.5 rounded-xl font-medium transition-all duration-200 hover:bg-secondary-600 focus:ring-4 focus:ring-secondary/20 active:scale-[0.98] shadow-sm hover:shadow-md;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary px-8 py-3.5 rounded-xl font-medium transition-all duration-200 hover:bg-primary-50 focus:ring-4 focus:ring-primary/20 active:scale-[0.98];
+  }
+
+  .btn-soft {
+    @apply bg-primary-50 text-primary-700 px-8 py-3.5 rounded-xl font-medium transition-all duration-200 hover:bg-primary-100 focus:ring-4 focus:ring-primary/20;
+  }
+
+  /* Section backgrounds */
+  .section-ivory {
+    @apply bg-neutral-50;
+  }
+
+  .section-white {
+    @apply bg-white;
+  }
+
+  .section-gradient {
+    @apply bg-gradient-to-b from-neutral-50 to-white;
+  }
+}
+
+@layer utilities {
+  /* Responsive text utilities */
+  .text-display {
+    @apply text-display-mobile md:text-display-desktop;
+  }
+
+  .text-h1 {
+    @apply text-h1-mobile md:text-h1-desktop;
+  }
+
+  .text-h2 {
+    @apply text-h2-mobile md:text-h2-desktop;
+  }
+
+  .text-h3 {
+    @apply text-h3-mobile md:text-h3-desktop;
+  }
+
+  .text-body {
+    @apply text-body-mobile md:text-body-desktop;
+  }
+
+  /* Container utilities */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}

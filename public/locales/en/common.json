@@ -1,0 +1,80 @@
+{
+  "site": {
+    "title": "Blanca Correa Law - Immigration Attorney in North Carolina",
+    "tagline": "Your Bridge to Immigration Success in North Carolina",
+    "description": "Navigate your immigration journey with confidence. Get personalized guidance, understand your options, and take the next step toward belonging."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "pathways": "Immigration Pathways",
+    "resources": "Resources",
+    "contact": "Contact",
+    "consultation": "Schedule Consultation",
+    "assessment": "Free Assessment"
+  },
+  "hero": {
+    "badge": "Serving North Carolina • English & Spanish",
+    "title": "Your Bridge to Immigration Success in",
+    "titleHighlight": "North Carolina",
+    "description": "Navigate your immigration journey with confidence. Get personalized guidance, understand your options, and take the next step toward belonging.",
+    "ctaPrimary": "Find Your Pathway",
+    "ctaSecondary": "Schedule Consultation"
+  },
+  "pathways": {
+    "title": "Explore Your Immigration Pathways",
+    "subtitle": "Every immigration journey is unique. Discover which pathway is right for you.",
+    "family": {
+      "title": "Family-Based Immigration",
+      "description": "Reunite with loved ones. Navigate the process of bringing family members to the United States.",
+      "cta": "Learn More"
+    },
+    "employment": {
+      "title": "Employment Visas",
+      "description": "Work in the United States. Explore employment-based visa options for professionals and workers.",
+      "cta": "Learn More"
+    },
+    "citizenship": {
+      "title": "Citizenship & Naturalization",
+      "description": "Become a U.S. citizen. Understand the naturalization process and requirements.",
+      "cta": "Learn More"
+    },
+    "ctaAssessment": "Take Our Free Assessment"
+  },
+  "whyChoose": {
+    "title": "Why Choose Blanca Correa Law",
+    "subtitle": "Experience the difference of truly bilingual, culturally-informed immigration guidance.",
+    "bilingual": {
+      "title": "Authentic Bilingual Service",
+      "description": "Not just translation—culturally adapted content and communication in both English and Spanish."
+    },
+    "local": {
+      "title": "Local North Carolina Expertise",
+      "description": "Deep understanding of regional USCIS offices, procedures, and the Triangle area immigrant community."
+    },
+    "humanCentered": {
+      "title": "Human-Centered Approach",
+      "description": "We understand the emotional journey of immigration and provide compassionate, personalized guidance."
+    },
+    "interactive": {
+      "title": "Interactive Guidance Tools",
+      "description": "Self-service assessment tools help you understand your options before your first consultation."
+    }
+  },
+  "cta": {
+    "title": "Ready to Start Your Immigration Journey?",
+    "description": "Take the first step today. Schedule a consultation or use our free assessment tool to explore your options.",
+    "consultation": "Schedule Consultation",
+    "assessment": "Free Assessment Tool"
+  },
+  "footer": {
+    "tagline": "Your Bridge to Immigration Success in North Carolina",
+    "copyright": "© 2024 Blanca Correa Law. All rights reserved."
+  },
+  "language": {
+    "english": "English",
+    "spanish": "Español",
+    "toggle": "Change language"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "site": {
+    "title": "Blanca Correa Law - Abogada de Inmigración en Carolina del Norte",
+    "tagline": "Su Puente hacia el Éxito Migratorio en Carolina del Norte",
+    "description": "Navegue su proceso migratorio con confianza. Obtenga orientación personalizada, comprenda sus opciones y dé el siguiente paso hacia la pertenencia."
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "services": "Servicios",
+    "pathways": "Caminos Migratorios",
+    "resources": "Recursos",
+    "contact": "Contacto",
+    "consultation": "Agendar Consulta",
+    "assessment": "Evaluación Gratuita"
+  },
+  "hero": {
+    "badge": "Sirviendo Carolina del Norte • Inglés y Español",
+    "title": "Su Puente hacia el Éxito Migratorio en",
+    "titleHighlight": "Carolina del Norte",
+    "description": "Navegue su proceso migratorio con confianza. Obtenga orientación personalizada, comprenda sus opciones y dé el siguiente paso hacia la pertenencia.",
+    "ctaPrimary": "Encuentre Su Camino",
+    "ctaSecondary": "Agendar Consulta"
+  },
+  "pathways": {
+    "title": "Explore Sus Caminos Migratorios",
+    "subtitle": "Cada proceso migratorio es único. Descubra cuál camino es el adecuado para usted.",
+    "family": {
+      "title": "Inmigración Basada en Familia",
+      "description": "Reúnase con sus seres queridos. Navegue el proceso de traer familiares a los Estados Unidos.",
+      "cta": "Más Información"
+    },
+    "employment": {
+      "title": "Visas de Trabajo",
+      "description": "Trabaje en los Estados Unidos. Explore opciones de visas basadas en empleo para profesionales y trabajadores.",
+      "cta": "Más Información"
+    },
+    "citizenship": {
+      "title": "Ciudadanía y Naturalización",
+      "description": "Conviértase en ciudadano estadounidense. Comprenda el proceso de naturalización y los requisitos.",
+      "cta": "Más Información"
+    },
+    "ctaAssessment": "Tome Nuestra Evaluación Gratuita"
+  },
+  "whyChoose": {
+    "title": "Por Qué Elegir Blanca Correa Law",
+    "subtitle": "Experimente la diferencia de una orientación migratoria verdaderamente bilingüe y culturalmente informada.",
+    "bilingual": {
+      "title": "Servicio Auténticamente Bilingüe",
+      "description": "No solo traducción—contenido y comunicación culturalmente adaptados en inglés y español."
+    },
+    "local": {
+      "title": "Experiencia Local en Carolina del Norte",
+      "description": "Profundo conocimiento de las oficinas regionales de USCIS, procedimientos y la comunidad inmigrante del área Triangle."
+    },
+    "humanCentered": {
+      "title": "Enfoque Centrado en las Personas",
+      "description": "Comprendemos el viaje emocional de la inmigración y brindamos orientación compasiva y personalizada."
+    },
+    "interactive": {
+      "title": "Herramientas de Orientación Interactivas",
+      "description": "Las herramientas de evaluación de autoservicio le ayudan a comprender sus opciones antes de su primera consulta."
+    }
+  },
+  "cta": {
+    "title": "¿Listo para Comenzar Su Proceso Migratorio?",
+    "description": "Dé el primer paso hoy. Agende una consulta o use nuestra herramienta de evaluación gratuita para explorar sus opciones.",
+    "consultation": "Agendar Consulta",
+    "assessment": "Herramienta de Evaluación Gratuita"
+  },
+  "footer": {
+    "tagline": "Su Puente hacia el Éxito Migratorio en Carolina del Norte",
+    "copyright": "© 2024 Blanca Correa Law. Todos los derechos reservados."
+  },
+  "language": {
+    "english": "English",
+    "spanish": "Español",
+    "toggle": "Cambiar idioma"
+  }
+}
